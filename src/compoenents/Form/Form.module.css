@@ -1,0 +1,145 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    height: 45px;
+}
+.signInForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signInForm .header {
+    font-size: 30px;
+    font-weight: 600;
+    color: #4DAAAA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headerIcon {
+    margin-right: 25px;
+    margin-top: 8px;
+}
+
+.submit {
+    margin-top: 0px;
+}
+
+.submit h5 {
+    text-align: center;
+}
+
+.signInForm .note {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 8px;
+    color: #A5A5A5;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.signInForm .note:hover {
+    color: #4DAAAA;
+}
+
+.social {
+    margin-top: 25px;
+}
+
+@media only screen and (min-width: 500px) {
+    .signInForm .form {
+        min-width: 350px;
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    .signInForm .header {
+        font-size: 27px;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    .signInForm .header , .signInForm .note {
+        zoom: 111%;
+        
+    }
+    
+
+}
+@media only screen and (min-width: 1600px) {
+    .signInForm .header {
+        zoom: 121%;
+        margin-top: -27px;
+        
+    }
+}
+@media only screen and (min-width: 1700px) {
+    .signInForm .header {
+        zoom: 135%;
+        margin-top: -55px;
+        
+    }
+    .signInForm .note {
+        zoom: 120%;
+        
+    }
+   
+
+}
+@media only screen and (min-width: 1800px) {
+    .signInForm .header {
+        zoom: 145%;
+      
+        
+    }
+    .signInForm .note {
+        zoom: 125%;
+        
+    }
+   
+
+}
+
+@media only screen and (min-width: 3200px) {
+    
+    .signInForm .header {
+        zoom: 290%;
+      
+        
+    }
+    .signInForm .note {
+        zoom: 250%;
+        
+    }
+
+}
+@media only screen and (min-width: 5000px) {
+    .signInForm .header {
+        zoom: 380%;
+      
+        
+    }
+    .signInForm .note {
+        zoom: 350%;
+        
+    }
+   
+
+}
+
+

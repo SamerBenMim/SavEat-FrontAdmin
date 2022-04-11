@@ -1,0 +1,17 @@
+.btn {
+    height: 60px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    border-radius: 7px;
+    width: 49%;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+    .btn {
+        width: 80%;
+    }
+}
