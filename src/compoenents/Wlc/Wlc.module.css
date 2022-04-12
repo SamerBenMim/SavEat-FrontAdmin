@@ -13,8 +13,7 @@
 }
 .title{
     color: white;
-    font-size: 7em;
-
+   
     margin-top: 13%;
     font-size: max(3em,4.2vw);
 }
@@ -23,8 +22,7 @@
     width: 74%;
     margin-top: 8%;
     font-size: max(2em,2.3vw);
-        text-align: center;
-
+    text-align: center;
 }
 .layer{
  position: absolute;
@@ -33,18 +31,16 @@
  bottom: -7px;
 }
 .img{
-    width: 66%;
+   width: 45%;
+   height: 45%;
     position: absolute;
     z-index: 100;
     margin-left: 11%;
-    bottom: 0;
+    bottom: -5%;
 }
-
-
-
-
-
-
+.img img {
+    width: 100%;
+}
 
 @media only screen and (max-width: 500px) {
     .text{
