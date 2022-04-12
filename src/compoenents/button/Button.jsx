@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./Button.module.css";
+
 const Button = (props) => {
   const nothing=()=>{};
   return (
@@ -15,5 +16,4 @@ const Button = (props) => {
     </button>
   );
 };
-
-export  default  Button
+export default Button;

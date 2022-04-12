@@ -1,17 +1,17 @@
 .btn {
-    height: 60px;
+    height: max(1.9em,1.2vh);
     color: #fff;
     font-weight: 700;
-    font-size: 20px;
+    font-size: max(2em,1.5vw);
     border: none;
     text-align: center;
-    border-radius: 7px;
-    width: 49%;
+    border-radius: max(0.08em,0.5vw);
+    width: 100%;
     cursor: pointer;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-height: 700px) {
     .btn {
-        width: 80%;
+        height: 35px;
     }
 }

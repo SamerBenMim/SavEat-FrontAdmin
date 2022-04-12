@@ -1,0 +1,60 @@
+.signInForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+  
+}
+
+.signInForm .header {
+ 
+    font-weight: 600;
+    color: #4DAAAA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: max(2.2em,3vh);
+    font-size: max(2em,2.3vw);
+}
+
+.submit {
+    margin-top: max(1em,1vw);
+}
+
+.submit h5 {
+    text-align: center;
+}
+
+.signInForm .note {
+    font-style: normal;
+    font-weight: 400;
+    color: #A5A5A5;
+    cursor: pointer;
+    padding: 0;
+    text-align:right;
+    font-size: max(1em,1vw);
+}
+
+.signInForm .note:hover {
+    color: #4DAAAA;
+}
+
+.social {
+    margin-top: 25px;
+}
+
+.notes {
+    margin-top: max(2em,1.5vw);
+}
+@media only screen and (min-width: 500px) {
+    .signInForm .form {
+        min-width: 350px;
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    .signInForm .header {
+        font-size: 27px;
+    }
+}
