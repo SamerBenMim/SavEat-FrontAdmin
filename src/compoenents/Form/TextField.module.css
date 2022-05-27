@@ -7,15 +7,14 @@
 .input {
     display: flex;
     align-items: center;
-
     /*height: 37px;*/
-    height: max(3.7em,3vw);
+    height: max(3.7em, 3vw);
     mix-blend-mode: normal;
     box-sizing: border-box;
-    border-radius: max(0.08em,0.5vw);
+    border-radius: max(0.08em, 0.5vw);
     outline: 0;
     background: #F0F0FF;
-    border: max(0.16em,0.2vw) solid #A5A5A5;
+    border: max(0.16em, 0.2vw) solid #A5A5A5;
     width: 100%;
 }
 
@@ -31,7 +30,7 @@
 }
 
 .passIcon {
-    font-size: max(2em,1.5vw);
+    font-size: max(2em, 1.5vw);
     color: #A5A5A5;
     margin-right: 10px;
     cursor: pointer;
@@ -42,23 +41,20 @@
 }
 
 .input input {
-    
-    height: max(1.5em,5vh);
-    padding: 0 max(2em,1.5vw);
-    font-size: max(2em,1.5vw);
+    padding: 0 max(2em, 1.5vw);
+    font-size: max(2em, 1.5vw);
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
     border: none;
     outline: none;
     width: 100%;
-
 }
 
 label {
     color: #A5A5A5;
     font-weight: 500;
-    margin-bottom: max(1.2em,1.2vw);
-    font-size: max(1.8em,1.2vw);
+    margin-bottom: max(1.2em, 1.2vw);
+    font-size: max(1.8em, 1.2vw);
 }
 
 input.formControl,
@@ -82,10 +78,8 @@ input.formControl:focus {
     color: red;
     font-style: normal;
     font-weight: 500;
-    font-size: max(1.2em,1vw);
-    margin: 1px 0 max(0.2em,1vw) 0;
+    font-size: max(1.2em, 1vw);
+    margin: 1px 0 max(0.2em, 1vw) 0;
     display: block;
-  
-   height: max(1em,1vw);
+    height: max(1em, 1vw);
 }
-

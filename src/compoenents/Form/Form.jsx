@@ -3,7 +3,6 @@ import style from './Form.module.css'
 import logo from '../../assets/logo.png'
 
 import { SignInForm } from './SignInForm'
-import { Formik, Form } from "formik";
 
 const Formulaire = () => {
   return (

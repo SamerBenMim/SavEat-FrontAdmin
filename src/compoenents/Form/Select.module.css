@@ -1,0 +1,27 @@
+.selectBox .select {
+    display: flex;
+    margin-top: calc(5px + 0.5vmin);
+    font-size: max(1.5em, 1.2vw);
+    flex-direction: column;
+    padding: calc(0.2vmin);
+}
+
+.selectBox .option {
+    font-size: max(0.5em, 0.5vw);
+}
+
+.selectBox .label {
+    color: #A5A5A5;
+    font-weight: 500;
+    font-size: max(1.8em, 1.2vw);
+}
+
+.error {
+    color: red;
+    font-style: normal;
+    font-weight: 500;
+    font-size: max(1.2em, 1vw);
+    margin: 1px 0 max(0.2em, 1vw) 0;
+    display: block;
+    height: max(1em, 1vw);
+}

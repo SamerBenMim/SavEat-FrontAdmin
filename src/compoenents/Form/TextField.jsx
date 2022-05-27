@@ -9,7 +9,6 @@ export const TextField = ({ label, ...props }) => {
   let styleErrorInput;
   const [passVisible, setPassVisible] = useState(false);
   const [labelColor, setLabelColor] = useState("#A5A5A5");
-  const [border, setBorder] = useState("1.5px solid #A5A5A5");
  
 
   let failed = props.failed || "";

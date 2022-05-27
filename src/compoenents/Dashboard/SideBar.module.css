@@ -1,0 +1,35 @@
+.sidebar {
+    display: grid;
+    align-items: center;
+    min-height: calc(100vh - 120px - 1vmin);
+    justify-content: center;
+    border-right: solid 2px #BCC5C5;
+}
+
+.sidebar .sideItem {
+    cursor: pointer;
+    display: flex;
+    color: #BCC5C5;
+    height: calc(20px + 1vmin);
+    font-size: calc(15px + 1vmin);
+    padding: calc(20px + 1vmin) calc(20px + 1vmin) calc(20px + 1vmin) 0;
+}
+
+.sidebar .sideItem h3 {
+    line-height: calc(20px + 1vmin);
+    vertical-align: middle;
+    padding: 0 calc(5px + 1vmin);
+}
+
+.sidebar .sideItem.active {
+    color: #4daaaa;
+}
+
+@media only screen and (max-width: 650px) {
+    .sidebar .sideItem {
+        padding: calc(10 + 1vmin) calc(10 + 1vmin) calc(10 + 1vmin) 0;
+    }
+    .sidebar .sideItem h3 {
+        display: none;
+    }
+}

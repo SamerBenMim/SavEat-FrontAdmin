@@ -1,0 +1,17 @@
+.element {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
+}
+
+.element h3:first-child {
+    max-width: 5ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.element h3:first-child:hover {
+    max-width: unset;
+    overflow: auto;
+    text-overflow: unset;
+}
