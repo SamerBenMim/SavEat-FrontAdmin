@@ -1,5 +1,6 @@
 import SideBar from "../compoenents/Dashboard/SideBar";
 import ItemMenu from "../compoenents/Dashboard/ItemMenu";
+import BoxMenu from "../compoenents/Dashboard/BoxMenu";
 import { useState } from "react";
 import Header from "../compoenents/Dashboard/Header";
 const Dashboard = () => {
@@ -25,6 +26,7 @@ const Dashboard = () => {
       >
         <SideBar fn={f} />
         {active === 1 && <ItemMenu />}
+        {active === 2 && <BoxMenu />}
       </div>
     </div>
   );

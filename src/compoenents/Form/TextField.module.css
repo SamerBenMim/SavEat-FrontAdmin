@@ -41,7 +41,7 @@
 }
 
 .input input {
-    padding: 0 max(2em, 1.5vw);
+    padding: 0 max(1em, 1.5vw);
     font-size: max(2em, 1.5vw);
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
