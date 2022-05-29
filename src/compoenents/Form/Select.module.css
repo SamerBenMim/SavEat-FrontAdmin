@@ -7,7 +7,7 @@
 }
 
 .selectBox .option {
-    font-size: max(0.5em, 0.5vw);
+    font-size: max(0.8em, 0.6vw);
 }
 
 .selectBox .label {

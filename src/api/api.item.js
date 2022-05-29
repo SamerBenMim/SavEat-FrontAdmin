@@ -45,6 +45,24 @@ export const getItemsCategory = async(category) => {
         });
 }
 
+
+export const getItems = async() => {
+    return await axios.get(`${api}/items/getAllItems`)
+        .then(res => {
+            if (res.data.status === 'success') {
+                console.log(res.data.data)
+                return (res.data.data)
+
+            } else {
+                return false
+            }
+        })
+        .catch(err => {
+            return false;
+        });
+}
+
+
 export const removeItem = async(id) => {
     return await axios.get(`${api}/items/removeItem/${id}`, {})
         .then(res => {
