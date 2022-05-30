@@ -1,6 +1,8 @@
 .header {
     height: calc(100px + 1vmin);
     padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .saveat {
@@ -17,4 +19,9 @@
 
 .logo {
     width: min-content;
+}.logout {
+    position: absolute;
+    right: 25px;
+    top: 18px;
+    cursor: pointer;
 }

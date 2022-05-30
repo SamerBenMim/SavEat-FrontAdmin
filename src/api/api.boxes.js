@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { api } from "./config"
 export const getBoxes= async() => {
+    const accessToken = localStorage.getItem('authToken');
 
-    return await axios.get(`${api}/boxes/getAllBoxes`)
+    return await axios.get(`${api}/boxes/getAllBoxes`,{ headers: {
+        authorization: 'Bearer ' + accessToken }})
     .then(res => {
             if (res.data.status === 'success') {
                 return res.data
@@ -48,10 +50,11 @@ export const getBoxes= async() => {
 // }
 
 export const removeBox = async(id) => {    
+    const accessToken = localStorage.getItem('authToken');
 
-    return await axios.delete(`${api}/boxes/removeBox/${id}`)
+    return await axios.delete(`${api}/boxes/removeBox/${id}`,{ headers: {
+        authorization: 'Bearer ' + accessToken }})
         .then(res => {
-            console.log('in fn')
             if (res.data.status === 'success') {
                 return true
             } else {
@@ -65,8 +68,10 @@ export const removeBox = async(id) => {
 }
 
 export const addBox = async(data) => {    
+    const accessToken = localStorage.getItem('authToken');
 
-    return await axios.post(`${api}/boxes/addBox`,data)
+    return await axios.post(`${api}/boxes/addBox`,data,{ headers: {
+        authorization: 'Bearer ' + accessToken }})
         .then(res => {
             if (res.data.status === 'success') {
                 return true

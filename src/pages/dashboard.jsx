@@ -1,11 +1,23 @@
 import SideBar from "../compoenents/Dashboard/SideBar";
 import ItemMenu from "../compoenents/Dashboard/ItemMenu";
 import BoxMenu from "../compoenents/Dashboard/BoxMenu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../compoenents/Dashboard/Header";
+import { loggedIn } from "../api/api.user";
+import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
   const [active, setActive] = useState(1);
-
+  const navigate = useNavigate();
+  useEffect(() => {
+    async function log() {
+      const res = await loggedIn()
+      if (!(res)) {
+        navigate("/login");
+      } else {
+      }
+    }
+    log();
+  }, [navigate]);
   const f = (x) => {
     setActive(x);
   };

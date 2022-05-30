@@ -1,0 +1,40 @@
+.load {
+    display: flex;
+    justify-content: center;
+}
+
+.load div {
+    width: 7px;
+    height: 7px;
+    background-color: #4DAAAA;
+    margin-left: 7px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin-top: calc(14px - 3.5px);
+    animation-name: loading;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.loadTwo {
+    animation-delay: 0.4s;
+}
+
+.loadThree {
+    animation-delay: 0.8s;
+}
+
+@keyframes loading {
+    to {
+        opacity: 0.3;
+        transform: translateY(-7px);
+        -webkit-transform: translateY(-7px);
+        -moz-transform: translateY(-7px);
+        -ms-transform: translateY(-7px);
+        -o-transform: translateY(-7px);
+    }
+}

@@ -10,8 +10,21 @@ const ItemMenu = () => {
   const [fresh, setFresh] = useState(true);
   const [addItem, setAddItem] = useState(false);
   const [boxes, setBoxes] = useState([]);
+  const [sorted, setSorted] = useState([]);
+  const [notsorted, setNotSorted] = useState([]);
   const [updateItem, setUpdateItem] = useState(false);
   const [items, setItems] = useState([]);
+ const handleChange = (e)=> {
+   if(e.target.value=="alpha"){
+    sorted.sort((a,b) => (a.category > b.category) ? -1 : ((b.category > a.category) ? 1 : 0)); 
+
+      setBoxes(sorted)
+    }
+    else{
+
+      setBoxes(notsorted)
+    }
+  }
   const listItems = async () => {
     const res = await getItems();
     if (res) {
@@ -33,11 +46,17 @@ const ItemMenu = () => {
 
     const results = await get_boxes();
     const items = await listItems();
-    console.log(items)
+    
     setItems(items);
-    if(results.data)
-    setBoxes(results.data.boxes);
+    if(results.data){
+
+      setBoxes(results.data.boxes);
+      setSorted(results.data.boxes)
+      setNotSorted(results.data.boxes)
+    }
+      
   }
+  
   useEffect(() => {
    
     getResults();
@@ -60,13 +79,12 @@ const ItemMenu = () => {
       )}
       <div className={classes.header}>
         <div className={classes.toggleCategory}>
-
         </div>
         <div className={classes.order}>
           <label htmlFor="order">Order by :</label>
-          <select name="order" id="order">
-            <option value="alpha">Alphabetic Orders</option>
-            <option value="last">Last Added</option>
+          <select name="order" id="order" onChange={ handleChange}>
+            <option value="alpha" >Alphabetic Orders</option>
+            <option value="last" >Last Added</option>
           </select>
         </div>
         <div className={classes.addButton}>
@@ -95,7 +113,6 @@ const ItemMenu = () => {
       </div>
       <div className={classes.elements}>
         {boxes.map((box, index) => {
-            console.log(box)
           return (
               <>
             <Box

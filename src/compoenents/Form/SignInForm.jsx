@@ -3,10 +3,18 @@ import classes from "./SignInForm.module.css";
 import { TextField } from "./TextField";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-
+import { login } from "../../api/api.user";
+import { useEffect, useState } from "react";
 import Button from "../button/Button";
+import { useNavigate } from "react-router-dom";
+import { loggedIn } from "../../api/api.user";
+import { LoaderPage } from "../../pages/LoginPage/loader";
+import ButtonLoader from "../../UI/ButtonLoader";
 
 export const SignInForm = (props) => {
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
   const validate = Yup.object({
     email: Yup.string()
       .email("Email is invalid !")
@@ -23,9 +31,18 @@ export const SignInForm = (props) => {
         password: "",
       }}
       validationSchema={validate}
-      onSubmit={(values) => {
-        console.log(values);
-      }}
+      onSubmit={async(values) => {
+        let data = { email: values.email, password: values.password };
+        const res = await login(data);
+
+        if (!res) {
+          // setFailed("These credentials don't match any account");
+        } else {
+          setLoading(true)
+          setTimeout(() => {
+            navigate("/dashboard");
+          }, 2000);
+        }      }}
     >
       {(formik) => (
         <div className={classes.signInForm}>
@@ -49,7 +66,9 @@ export const SignInForm = (props) => {
               />
               <h5 className={classes.note}>Forgot your password ?</h5>
               <div className={classes.submit}>
-                <Button color="#4DAAAA" content="Submit" type="submit" />
+              {!loading ? <Button color="#4DAAAA" content="Submit" type="submit" />:    <div>
+            <div style={{height:"10px" ,display:"flex",alignItems:"center",marginBottom:"40px",justifyContent:"center",width:'100%'}}><ButtonLoader/></div>          </div>
+      } 
               </div>
               <div className={classes.notes}>
                 <h5
