@@ -8,6 +8,17 @@ const ItemMenu = () => {
   const [fresh, setFresh] = useState(true);
   const [addItem, setAddItem] = useState(false);
   const [updateItem, setUpdateItem] = useState(false);
+  const [sorted, setSorted] = useState([]);
+  const [notsorted, setNotSorted] = useState([]);
+  const handleChange = (e)=> {
+    if(e.target.value=="alpha"){
+      setItems(sorted)
+    }
+    else{
+      setItems(notsorted)
+    }
+  }
+  
   const listItems = async () => {
     let category;
     if (fresh) {
@@ -22,11 +33,15 @@ const ItemMenu = () => {
       return [];
     }
   };
+
   let [items, setItems] = useState([]);
+  sorted.sort((a,b) => (a.category > b.category) ? -1 : ((b.category > a.category) ? 1 : 0));
+
   useEffect(() => {
     async function getResults() {
       const results = await listItems();
       setItems(results.items);
+    
     }
     getResults();
   }, [fresh, addItem, updateItem]);
@@ -66,7 +81,7 @@ const ItemMenu = () => {
         </div>
         <div className={classes.order}>
           <label htmlFor="order">Order by :</label>
-          <select name="order" id="order">
+          <select name="order" id="order" >
             <option value="alpha">Alphabetic Orders</option>
             <option value="last">Last Added</option>
           </select>
@@ -97,7 +112,7 @@ const ItemMenu = () => {
         {items.map((item, index) => {
           return (
             <Item
-              key={index}
+              key={item._id+index+7}
               id={item._id}
               name={item.name}
               category={item.category}

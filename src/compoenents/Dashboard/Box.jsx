@@ -4,7 +4,6 @@ import UpdateBoxForm from "./updateBoxForm";
 import { removeBox } from "../../api/api.boxes";
 import { useState } from "react";
 const Box = (props) => {
-    console.log("all",props.all_items)
     const [updateItem, setUpdateItem] = useState(props.updateItem);
   const remove = async () => {
     const res = await removeBox(props.id);
@@ -41,7 +40,7 @@ const Box = (props) => {
       <div>{props.price} dt</div>
       <div style={{maxHeight:"95px" ,overflowY: "auto"}}>{props.items.map((e,i)=>{ i++
           return (
-          <div>
+          <div key={i}>
 
               <div> {i} - <span> {e.name} </span> </div>
           </div>
@@ -94,7 +93,6 @@ const Box = (props) => {
       <div
         style={{ textAlign: "right", cursor: "pointer" }}
         onClick={() => {
-            console.log("update")
           setUpdateItem(true);
           props.setUpdateItem(true);
         }}

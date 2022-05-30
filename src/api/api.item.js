@@ -1,7 +1,12 @@
 import axios from 'axios';
 import { api } from "./config"
+
+
 export const addItem = async(data) => {
-    return await axios.post(`${api}/items/addItem`, data)
+    const accessToken = localStorage.getItem('authToken');
+
+    return await axios.post(`${api}/items/addItem`, data,{ headers: {
+        authorization: 'Bearer ' + accessToken }})
         .then(res => {
             if (res.data.status === 'success') {
                 return true
@@ -16,7 +21,10 @@ export const addItem = async(data) => {
 }
 
 export const updateItem = async(data) => {
-    return await axios.patch(`${api}/items/updateItem`, data)
+    const accessToken = localStorage.getItem('authToken');
+
+    return await axios.patch(`${api}/items/updateItem`, data,{ headers: {
+        authorization: 'Bearer ' + accessToken }})
         .then(res => {
             if (res.data.status === 'success') {
                 return true
@@ -31,7 +39,10 @@ export const updateItem = async(data) => {
 }
 
 export const getItemsCategory = async(category) => {
-    return await axios.get(`${api}/items/getItemsCategory/${category}`, {})
+    const accessToken = localStorage.getItem('authToken');
+
+    return await axios.get(`${api}/items/getItemsCategory/${category}`, { headers: {
+        authorization: 'Bearer ' + accessToken }})
         .then(res => {
             if (res.data.status === 'success') {
                 return (res.data.data)
@@ -47,10 +58,12 @@ export const getItemsCategory = async(category) => {
 
 
 export const getItems = async() => {
-    return await axios.get(`${api}/items/getAllItems`)
+    const accessToken = localStorage.getItem('authToken');
+
+    return await axios.get(`${api}/items/getAllItems`,{ headers: {
+        authorization: 'Bearer ' + accessToken }})
         .then(res => {
             if (res.data.status === 'success') {
-                console.log(res.data.data)
                 return (res.data.data)
 
             } else {
@@ -64,7 +77,10 @@ export const getItems = async() => {
 
 
 export const removeItem = async(id) => {
-    return await axios.get(`${api}/items/removeItem/${id}`, {})
+    const accessToken = localStorage.getItem('authToken');
+
+    return await axios.get(`${api}/items/removeItem/${id}`, { headers: {
+        authorization: 'Bearer ' + accessToken }})
         .then(res => {
             if (res.data.status === 'success') {
                 return true
