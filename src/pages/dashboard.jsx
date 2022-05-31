@@ -1,6 +1,8 @@
 import SideBar from "../compoenents/Dashboard/SideBar";
 import ItemMenu from "../compoenents/Dashboard/ItemMenu";
 import BoxMenu from "../compoenents/Dashboard/BoxMenu";
+import OrderMenu from "../compoenents/Dashboard/orderMenu ";
+import DealMenu from "../compoenents/Dashboard/dealMenu ";
 import { useEffect, useState } from "react";
 import Header from "../compoenents/Dashboard/Header";
 import { loggedIn } from "../api/api.user";
@@ -39,6 +41,8 @@ const Dashboard = () => {
         <SideBar fn={f} />
         {active === 1 && <ItemMenu />}
         {active === 2 && <BoxMenu />}
+        {active === 3 && <OrderMenu />}
+        {active === 5 && <DealMenu />}
       </div>
     </div>
   );
