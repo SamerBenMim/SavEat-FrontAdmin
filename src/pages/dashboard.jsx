@@ -3,6 +3,7 @@ import ItemMenu from "../compoenents/Dashboard/ItemMenu";
 import BoxMenu from "../compoenents/Dashboard/BoxMenu";
 import OrderMenu from "../compoenents/Dashboard/orderMenu ";
 import DealMenu from "../compoenents/Dashboard/dealMenu ";
+import OfferMenu from "../compoenents/Dashboard/OfferMenu";
 import { useEffect, useState } from "react";
 import Header from "../compoenents/Dashboard/Header";
 import { loggedIn } from "../api/api.user";
@@ -42,6 +43,7 @@ const Dashboard = () => {
         {active === 1 && <ItemMenu />}
         {active === 2 && <BoxMenu />}
         {active === 3 && <OrderMenu />}
+        {active === 4 &&  <OfferMenu />}
         {active === 5 && <DealMenu />}
       </div>
     </div>

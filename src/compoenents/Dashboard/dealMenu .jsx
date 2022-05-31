@@ -35,13 +35,13 @@ var fn = (e)=>{ if(filter) return e.status==filter
                 return true
 }
 
-const confirm= async(id)=>{
-const res = await confirmDeal(id);
+const confirm= async(id,offerId)=>{
+const res = await confirmDeal(id,offerId);
 if(res)
  get_deals()
 }
-const decline=async(id)=>{
-  const res = await declineDeal(id);
+const decline=async(id,offerId)=>{
+  const res = await declineDeal(id,offerId);
 if(res)
  get_deals()
 }
@@ -83,23 +83,22 @@ if(res)
       </div>
       <div className={classes.elements}>
         {(!loading&&deals.length)?deals.filter(fn).map((deal, index) => {
-          console.log(deal)
           
           return ( 
-      <div className={classes.titles} >
+      <div className={classes.titles}  key={index}>
         <h3>{deal.customer.firstName??"unknown"}</h3>
-        <div>{`${deal.offer.product}  (x${deal.quantity})` } </div>
+        <div>{`${(deal.offer)?deal.offer.product:"product"}  (x${deal.quantity})` } </div>
         <div>{deal.customer_phone}</div>
         <div>{deal.customer_address}</div>
-        <div>{deal.offer.new_price * deal.quantity} dt</div>
+        <div>{(deal.offer)?deal.offer.new_price:5 * deal.quantity} dt</div>
         <div className={  `submitted ${(deal.status=="confirmed")? "confirmed":" " && (deal.status=="declined")?"declined":" " }` } style={{display:"flex"}}>{deal.status}
         {((deal.status=="submitted"))&&
             <div>
               <img src={submit} alt="submit" style={{width:'40px' , cursor:"pointer",marginTop:"-10px",marginLeft:"15px"}}
-              onClick={()=>{confirm(deal._id)}}
+              onClick={()=>{confirm(deal._id,deal.offer._id)}}
               />
               <img src={cancel} alt="decline" style={{width:'30px' , cursor:"pointer",marginTop:"-3px",  marginLeft:"20px",  position: "absolute"}} 
-               onClick={()=>{decline(deal._id)}}
+               onClick={()=>{decline(deal._id,deal.offer._id)}}
               />
             </div>
             }

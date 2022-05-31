@@ -43,6 +43,17 @@ const SideBar = ({ fn }) => {
       </div>
       <div
         onClick={() => {
+          setActive(4);
+          fn(4);
+        }}
+        className={`${classes.sideItem} ${active === 4? classes.active : ""}`}
+      >
+        <Order color={`${active === 4? green : grey}`}></Order>
+
+        <h3>Offers</h3>
+      </div>
+      <div
+        onClick={() => {
           setActive(5);
           fn(5);
         }}
