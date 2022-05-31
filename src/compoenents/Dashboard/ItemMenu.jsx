@@ -118,7 +118,7 @@ const ItemMenu = () => {
         {(!loading)?items.map((item, index) => {
           return (
             <Item
-              key={item._id+index+7}
+              key={index}
               id={item._id}
               name={item.name}
               category={item.category}

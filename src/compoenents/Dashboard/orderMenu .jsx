@@ -83,7 +83,7 @@ if(res) get_orders()
       <div className={classes.elements}>
         {(!loading&&orders.length)?orders.filter(fn).map((order, index) => {
           return ( 
-      <div className={classes.titles} >
+      <div className={classes.titles} key={index} >
         <h3>{order.customer.firstName??"unknown"}</h3>
         <h3>{order.date}</h3>
         <div>{order.customer_phone}</div>

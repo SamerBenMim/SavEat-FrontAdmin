@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { api } from "./config"
-export const getAllDeals= async() => {
+export const getOffers= async() => {
     const accessToken = localStorage.getItem('authToken');
 
-    return await axios.get(`${api}/deals/getAllDeals`,{ headers: {
+    return await axios.get(`${api}/offers/getAllOffers`,{ headers: {
         authorization: 'Bearer ' + accessToken }})
     .then(res => {
             if (res.data.status === 'success') {
@@ -18,15 +18,15 @@ export const getAllDeals= async() => {
             return false;
         });
 }
-export const confirmDeal= async(id) => {
+
+export const removeOffer = async(id) => {    
     const accessToken = localStorage.getItem('authToken');
 
-    return await axios.patch(`${api}/deals/confirmdeal/${id}`,{},{ headers: {
+    return await axios.delete(`${api}/offers/removeOffer/${id}`,{ headers: {
         authorization: 'Bearer ' + accessToken }})
-    .then(res => {
+        .then(res => {
             if (res.data.status === 'success') {
-                return res.data
-
+                return true
             } else {
                 return false
             }
@@ -36,15 +36,15 @@ export const confirmDeal= async(id) => {
             return false;
         });
 }
-export const declineDeal= async(id,offer_id) => {
+
+export const addOffer = async(data) => {    
     const accessToken = localStorage.getItem('authToken');
 
-    return await axios.patch(`${api}/deals/declinedeal/${id}`,{offer_id},{ headers: {
+    return await axios.post(`${api}/offers/addOffer`,data,{ headers: {
         authorization: 'Bearer ' + accessToken }})
-    .then(res => {
+        .then(res => {
             if (res.data.status === 'success') {
-                return res.data
-
+                return true
             } else {
                 return false
             }
