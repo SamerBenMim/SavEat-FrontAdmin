@@ -5,9 +5,10 @@ import AddBoxForm from "./AddBoxForm";
 import Modal from "./Modal";
 import { getItems } from "../../api/api.item";
 import { getBoxes } from "../../api/api.boxes";
-
+import {Loader} from "../../UI/Loader"
 const ItemMenu = () => {
   const [fresh, setFresh] = useState(true);
+  const [loading, setloading] = useState(true);
   const [addItem, setAddItem] = useState(false);
   const [boxes, setBoxes] = useState([]);
   const [sorted, setSorted] = useState([]);
@@ -46,7 +47,7 @@ const ItemMenu = () => {
 
     const results = await get_boxes();
     const items = await listItems();
-    
+    setloading(false)
     setItems(items);
     if(results.data){
 
@@ -57,7 +58,7 @@ const ItemMenu = () => {
       
   }
   
-  useEffect(() => {
+  useEffect(() => { 
    
     getResults();
   }, [ addItem, updateItem]);
@@ -112,7 +113,7 @@ const ItemMenu = () => {
         </div>
       </div>
       <div className={classes.elements}>
-        {boxes.map((box, index) => {
+        {(!loading)?boxes.map((box, index) => {
           return (
               <>
             <Box
@@ -131,7 +132,7 @@ const ItemMenu = () => {
               <br />
               </>
           );
-        })}
+        }):<Loader/>}
       </div>
     </div>
   );

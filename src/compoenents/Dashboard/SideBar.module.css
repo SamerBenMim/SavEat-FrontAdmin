@@ -4,6 +4,7 @@
     min-height: calc(100vh - 120px - 1vmin);
     justify-content: center;
     border-right: solid 2px #BCC5C5;
+    align-self: baseline;
 }
 
 .sidebar .sideItem {

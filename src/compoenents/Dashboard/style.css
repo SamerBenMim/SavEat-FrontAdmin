@@ -1,0 +1,9 @@
+.submitted{
+    color: #bcbc72;
+}
+.declined{
+    color: rgb(255, 0, 0);
+}
+.confirmed{
+    color: rgb(9, 152, 9);
+}

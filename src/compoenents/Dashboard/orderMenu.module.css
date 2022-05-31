@@ -1,0 +1,124 @@
+.itemMenu {
+    padding: 30px;
+    width: 100%;
+    align-self: flex-start;
+}
+
+.itemMenu .header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemMenu .toggleCategory {
+    font-size: calc(15px + 1vmin);
+    display: flex;
+    font-weight: 700;
+    color: #4daaaa;
+    background-color: white;
+}
+
+.itemMenu .toggleCategory .category {
+    cursor: pointer;
+    text-align: center;
+    width: calc(100px + 1vmin);
+    border: #4daaaa 1px solid;
+}
+
+.itemMenu .toggleCategory .category:first-child {
+    cursor: pointer;
+    text-align: center;
+    padding: calc(2px + 1vmin);
+    width: calc(100px + 1vmin);
+    border: #4daaaa 1px solid;
+    border-radius: calc(5px + 1vmin) 0 0 calc(5px + 1vmin);
+}
+
+.itemMenu .toggleCategory .category:last-child {
+    cursor: pointer;
+    text-align: center;
+    padding: calc(2px + 1vmin);
+    width: calc(100px + 1vmin);
+    border: #4daaaa 1px solid;
+    border-radius: 0 calc(5px + 1vmin) calc(5px + 1vmin) 0;
+}
+
+.itemMenu .toggleCategory .category.active {
+    color: white;
+    background-color: #4daaaa;
+}
+
+.itemMenu .order label {
+    color: #4daaaa;
+    font-size: calc(15px + 1vmin);
+    padding: calc(5px + 1vmin);
+    font-weight: 700;
+}
+
+.itemMenu .order select {
+    color: #BCC5C5;
+    font-size: calc(15px + 1vmin);
+    font-weight: 700;
+    border: none;
+    background: white;
+    padding: 3px;
+    border-radius: 2px;
+}
+
+.itemMenu .order select {
+    outline: none
+}
+.itemMenu .order option {
+    color: #BCC5C5;
+    font-size: calc(10px + 1vmin);
+    font-weight: 700;
+}
+
+.itemMenu .order option:hover {
+    background-color: #4daaaa;
+    color: white;
+}
+
+.addButton {
+    text-align: center;
+    color: #4daaaa;
+    font-weight: 700;
+    font-size: calc(15px + 1vmin);
+    cursor: pointer;
+}
+.submitted{
+    color: yellow;
+}
+
+.itemMenu .titles {
+    margin-top: calc(15px + 1vmin);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr  1fr 1.2fr;
+    border-bottom: #4daaaa solid 2px;
+}
+
+.itemMenu .elements {
+    margin-top: calc(10px + 1vmin);
+    display: flex;
+    flex-direction: column;
+    font-size: calc(10px + 1vmin);
+}
+
+.itemMenu .titles .title {
+    font-size: calc(15px + 1vmin);
+    font-weight: 500;
+    color: #BCC5C5;
+}
+
+@media only screen and (max-width: 650px) {
+    .itemMenu .header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start
+    }
+    .itemMenu .toggleCategory .category {
+        text-align: left;
+    }
+}

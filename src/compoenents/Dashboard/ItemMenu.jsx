@@ -4,7 +4,11 @@ import Item from "./Item";
 import AddItemForm from "./AddItemForm";
 import Modal from "./Modal";
 import { getItemsCategory } from "../../api/api.item";
+import {Loader} from "../../UI/Loader"
+
 const ItemMenu = () => {
+  const [loading, setloading] = useState(true);
+  
   const [fresh, setFresh] = useState(true);
   const [addItem, setAddItem] = useState(false);
   const [updateItem, setUpdateItem] = useState(false);
@@ -27,21 +31,23 @@ const ItemMenu = () => {
       category = "Canned";
     }
     const res = await getItemsCategory(category);
+    setloading(false)
     if (res) {
       return res;
     } else {
       return [];
     }
   };
-
+  
   let [items, setItems] = useState([]);
   sorted.sort((a,b) => (a.category > b.category) ? -1 : ((b.category > a.category) ? 1 : 0));
-
+  
   useEffect(() => {
     async function getResults() {
       const results = await listItems();
+      
       setItems(results.items);
-    
+      
     }
     getResults();
   }, [fresh, addItem, updateItem]);
@@ -109,7 +115,7 @@ const ItemMenu = () => {
         </div>
       </div>
       <div className={classes.elements}>
-        {items.map((item, index) => {
+        {(!loading)?items.map((item, index) => {
           return (
             <Item
               key={item._id+index+7}
@@ -122,7 +128,7 @@ const ItemMenu = () => {
               setItems={setItems}
             ></Item>
           );
-        })}
+        }):<Loader/>}
       </div>
     </div>
   );
